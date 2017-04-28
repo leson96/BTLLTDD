@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/backgroup_kukupi"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txttime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="3s"
+        android:textSize="35sp"
+        android:textColor="#ff0"
+        android:textStyle="bold|italic"
+        android:background="@color/colorAccent"
+        android:gravity="center"/>
+
+    <GridView
+        android:id="@+id/grview"
+        android:gravity="fill|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:columnWidth="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txttime"
+        android:layout_above="@+id/txtdiem" />
+    <TextView
+        android:id="@+id/txtdiem"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="0"
+        android:gravity="center"
+        android:textColor="#ff0"
+        android:textStyle="bold|italic"
+        android:textSize="35sp"
+        android:background="@color/colorAccent"
+        android:textAlignment="center"/>
+
+
+</RelativeLayout>
