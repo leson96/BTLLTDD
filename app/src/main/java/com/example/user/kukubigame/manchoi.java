@@ -23,20 +23,21 @@ public class manchoi extends AppCompatActivity {
     Congcuhotro congcu = new Congcuhotro();
     ArrayList arr;
     int diem,so0, kiemtra = 0;
-    CountDownTimer time= new CountDownTimer(MainActivity.level, 10) //dem tu 30k mili s xuong 10k
+    CountDownTimer time= new CountDownTimer(MainActivity.level, 100) //dem tu 30k mili s xuong 0
     {
 
-        public void onTick(long millisUntilFinished)  /// trong khi dem
+        public void onTick(long millisUntilFinished)  /// trong khi dem 1000milisecond
         {
             txttime.setText(millisUntilFinished / 1000+" ");
         }
 
         public void onFinish() {
             kiemtra =1;
-            txttime.setText("0");
+            time.cancel();
+            // txttime.setText("0");
+            result();
 
-           result();
-    } // sau khi dem
+        } // sau khi dem
     }.start();
 
 @Override
@@ -45,10 +46,8 @@ public class manchoi extends AppCompatActivity {
         setContentView(R.layout.layout_man_choi);  // ket voi layout man choi
         findID();
         caidatgriview();
-
         setdulieu();
         setsukien();
-
     }
     private void findID(){
         grview = (GridView)findViewById(R.id.grview);
@@ -66,7 +65,6 @@ public class manchoi extends AppCompatActivity {
             grview.setNumColumns(diem/10+2); //  10<= 3 <20
             so0=(diem/10+2)*(diem/10+2); //so o gap doi
         }
-
     }
     private  void  setdulieu(){
         arr = new ArrayList(congcu.taobangmau(so0));
@@ -79,15 +77,13 @@ public class manchoi extends AppCompatActivity {
         grview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==congcu.dapan &&kiemtra==0)
+                if(position==congcu.dapan && position==congcu.dapan1 &&kiemtra==0)
                 {
                     caidatgriview();
                     time.start(); // dung thi dat lai time
                     diem=diem+5;
                     setdulieu();
                 }
-
-
             }
         });
     }
@@ -97,6 +93,7 @@ public class manchoi extends AppCompatActivity {
         intent.putExtra("SCORE", diem);
 
         startActivity(intent);
-        finish();
+       // finish();
+       // finish();
     }
 }

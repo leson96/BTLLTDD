@@ -61,14 +61,15 @@ public class result extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(), manchoi.class));
-                finish();
+               // finish();
             }
         });
         btHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+               // finish();
+             //   System.exit(0);
             }
         });
     }
