@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE); //SharePrefernces luu highscore
         int highScoreFast = sharedPreferences.getInt("HIGH_SCORE_FAST",0);
-        int highScoreNormal= sharedPreferences.getInt("HIGH_SCORE_NORMAL",1);
+        int highScoreNormal= sharedPreferences.getInt("HIGH_SCORE_NORMAL",0);
         if(highScoreFast >= highScoreNormal)
             txtHighScore.setText("High score : "+highScoreFast);
         else
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,manchoi.class);
 
                 startActivity(i);
-                finish();
+                //finish();
 
             }
         });
