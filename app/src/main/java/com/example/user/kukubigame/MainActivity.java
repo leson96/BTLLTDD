@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    public static int mau_hinh = 0;
     Button btNormal, btExit, btFast;
     TextView txtHighScore;
+    RadioButton rbtColor, rbtImage;
+    RadioGroup rbtGroup;
     static int level ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         btExit = (Button) findViewById(R.id.btExit);
         txtHighScore = (TextView) findViewById(R.id.highScore);
         btFast = (Button) findViewById(R.id.btFast);
+//        rbtGroup = (RadioGroup) findViewById(R.id.rbtGroup);
+//        rbtColor = (RadioButton) findViewById(R.id.rbtMau);
+//        rbtImage = (RadioButton) findViewById(R.id.rbtHinh);
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE); //SharePrefernces luu highscore
         int highScoreFast = sharedPreferences.getInt("HIGH_SCORE_FAST",0);
@@ -31,6 +40,18 @@ public class MainActivity extends AppCompatActivity {
             txtHighScore.setText("High score : "+highScoreFast);
         else
             txtHighScore.setText("High score : "+highScoreNormal);
+
+//        int radioGroup = rbtGroup.getCheckedRadioButtonId();
+//        switch (radioGroup)
+//        {
+//            case   R.id.rbtHinh:
+//                mau_hinh = 1;
+//                break;
+//            case R.id.rbtMau:
+//                mau_hinh = 0;
+//                break;
+//        }
+
         Play(btNormal);
         Play(btFast);
 
@@ -47,20 +68,28 @@ public class MainActivity extends AppCompatActivity {
     private void Play(View v)
     {
 
+
+
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(v == btFast)
                 {
                     level = 4000;
                 }
                 else if(v == btNormal) level = 6000;
+
                 Intent i = new Intent(MainActivity.this,manchoi.class);
 
+
                 startActivity(i);
+
                 //finish();
 
             }
         });
+
+
     }
 }
