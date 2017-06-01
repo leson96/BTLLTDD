@@ -32,7 +32,23 @@
         android:text="EXIT"
         android:layout_marginTop="10dp"
         />
-
+<RadioGroup
+    android:id="@+id/rbtGroup"
+   android:background="#FFF"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/rbtColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color"
+        android:checked="true"/>
+    <RadioButton
+        android:id="@+id/rbtImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image"/>
+</RadioGroup>
     <TextView
         android:id="@+id/highScore"
 

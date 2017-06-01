@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public static int mau_hinh = 0;
+    public static int mode =0 ;
     Button btNormal, btExit, btFast;
     TextView txtHighScore;
     RadioButton rbtColor, rbtImage;
@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         btExit = (Button) findViewById(R.id.btExit);
         txtHighScore = (TextView) findViewById(R.id.highScore);
         btFast = (Button) findViewById(R.id.btFast);
-//        rbtGroup = (RadioGroup) findViewById(R.id.rbtGroup);
-//        rbtColor = (RadioButton) findViewById(R.id.rbtMau);
-//        rbtImage = (RadioButton) findViewById(R.id.rbtHinh);
+        rbtGroup = (RadioGroup) findViewById(R.id.rbtGroup);
+        rbtColor = (RadioButton) findViewById(R.id.rbtColor);
+        rbtImage = (RadioButton) findViewById(R.id.rbtImage);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE); //SharePrefernces luu highscore
@@ -41,16 +41,7 @@ public class MainActivity extends AppCompatActivity {
         else
             txtHighScore.setText("High score : "+highScoreNormal);
 
-//        int radioGroup = rbtGroup.getCheckedRadioButtonId();
-//        switch (radioGroup)
-//        {
-//            case   R.id.rbtHinh:
-//                mau_hinh = 1;
-//                break;
-//            case R.id.rbtMau:
-//                mau_hinh = 0;
-//                break;
-//        }
+
 
         Play(btNormal);
         Play(btFast);
@@ -73,7 +64,16 @@ public class MainActivity extends AppCompatActivity {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                int radioGroup = rbtGroup.getCheckedRadioButtonId();
+                switch (radioGroup)
+                {
+                    case R.id.rbtColor:
+                        mode = 0;
+                        break;
+                    case R.id.rbtImage:
+                        mode = 1;
+                        break;
+                }
                 if(v == btFast)
                 {
                     level = 4000;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(i);
 
-                //finish();
+               // finish();
 
             }
         });
