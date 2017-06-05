@@ -7,3 +7,5 @@ Các thành viên trong nhóm:
 - Trần Văn Đạt: 1451010041
 ----
 Link Video Demo: https://youtu.be/FMCQWuZwI7w
+----
+Báo cáo về cách tạo ô vuông trong chương trình: Bao-cao-LTDD.docx
